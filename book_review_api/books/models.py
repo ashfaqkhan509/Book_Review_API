@@ -24,7 +24,7 @@ class Book(Base):
     author: Mapped[str] = mapped_column(String(100))
 
     reviews: Mapped[list["Review"]] = relationship(
-        "Review", 
+        "Review",
         back_populates="book",
         cascade="all, delete-orphan"
     )
