@@ -1,4 +1,4 @@
-# 📚 Book Review Platform API
+# Book Review Platform API
 
 A backend API built with **FastAPI** that allows users to:
 
@@ -12,7 +12,7 @@ A backend API built with **FastAPI** that allows users to:
 
 ---
 
-## 🚀 Features
+## Features
 
 - **JWT Authentication** (login & register)
 - **Role-based access** (admin and regular users)
@@ -24,7 +24,7 @@ A backend API built with **FastAPI** that allows users to:
 
 ---
 
-## 🛠 Technologies Used
+## Technologies Used
 
 - [FastAPI](https://fastapi.tiangolo.com/)
 - [SQLAlchemy 2.0](https://docs.sqlalchemy.org/en/20/)
@@ -35,7 +35,7 @@ A backend API built with **FastAPI** that allows users to:
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 book_review_api/
 ├── auth/
