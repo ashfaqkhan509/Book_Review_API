@@ -24,6 +24,7 @@ class BookBase(BaseModel):
     title: str
     author: str
 
+
 class BookCreate(BookBase):
     pass
 
