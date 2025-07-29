@@ -1,12 +1,15 @@
 from pydantic import BaseModel
 from typing import List
 
+
 class ReviewBase(BaseModel):
     content: str
     rating: float
 
+
 class ReviewCreate(ReviewBase):
     book_id: int
+
 
 class Review(ReviewBase):
     id: int
@@ -16,12 +19,14 @@ class Review(ReviewBase):
     class Config:
         from_attributes = True
 
+
 class BookBase(BaseModel):
     title: str
     author: str
 
 class BookCreate(BookBase):
     pass
+
 
 class Book(BookBase):
     id: int

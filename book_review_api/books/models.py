@@ -7,13 +7,14 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from auth.models import User
 
-# Correct association table for likes
+# association table for likes
 review_likes = Table(
     "review_likes",
     Base.metadata,
     Column("user_id", Integer, ForeignKey("users.id"), primary_key=True),
     Column("review_id", Integer, ForeignKey("reviews.id"), primary_key=True)
 )
+
 
 class Book(Base):
     __tablename__ = "books"
@@ -23,6 +24,7 @@ class Book(Base):
     author: Mapped[str] = mapped_column(String(100))
 
     reviews: Mapped[list["Review"]] = relationship("Review", back_populates="book", cascade="all, delete-orphan")
+
 
 class Review(Base):
     __tablename__ = "reviews"
@@ -35,4 +37,8 @@ class Review(Base):
 
     book: Mapped["Book"] = relationship("Book", back_populates="reviews")
     owner: Mapped["User"] = relationship("User", back_populates="reviews")
-    likes: Mapped[list["User"]] = relationship("User", secondary=review_likes, back_populates="liked_reviews")
+    likes: Mapped[list["User"]] = relationship(
+        "User",
+        secondary=review_likes,
+        back_populates="liked_reviews"
+    )
